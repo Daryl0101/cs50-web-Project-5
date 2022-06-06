@@ -1,0 +1,47 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="shortcut icon" href="{% static 'media/favicon.ico' %}" type="image/x-icon" />
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-transparent p-0 nav-after-login">
+        <div class="container-fluid">
+            <a class="navbar-brand pt-1 pb-1" href="{% url 'dashboard' %}">
+                <img src="{% static 'media/logo_blue.png' %}" alt="Vtrade" width="90" height="26">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto w-100 justify-content-center">
+                    <li class="nav-item pt-1 pb-1 ps-3 pe-3"><a class="nav-link" href="{% url 'dashboard' %}" id="dashboard-nav-btn">Dashboard</a></li>
+                    <li class="nav-item pt-1 pb-1 ps-3 pe-3"><a class="nav-link" href="{% url 'search' %}" id="search-nav-btn">Search</a></li>
+                    <li class="nav-item pt-1 pb-1 ps-3 pe-3"><a class="nav-link" href="{% url 'portfolio' %}" id="portfolio-nav-btn">Portfolio</a></li>
+                    <li class="nav-item pt-1 pb-1 ps-3 pe-3"><a class="nav-link" href="{% url 'history' %}" id="history-nav-btn">History</a></li>
+                </ul>
+                <div class="navbar-nav dropdown me-lg-5 pt-1 pb-2">
+                    <a class="nav-link dropdown-toggle ms-3 me-3" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        {{ user.username }}
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Profile</a></li>
+                        <li><a class="dropdown-item" href="{% url 'logout' %}">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        </nav>
+    {% block body %}
+    {% endblock %}
+    <script type='text/javascript' src="{% static 'display.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>

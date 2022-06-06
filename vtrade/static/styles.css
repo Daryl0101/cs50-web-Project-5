@@ -1,0 +1,247 @@
+body {
+  font-family: Helvetica, sans-serif;
+}
+
+#indexVid {
+  position: absolute;
+  width: 100%;
+  z-index: -1;
+  object-fit: cover;
+  height: 100vh;
+}
+
+.nav-before-login {
+  padding: 20px 120px;
+  align-content: center;
+}
+
+.button-icons {
+  vertical-align: middle;
+}
+
+.btn-dark:hover {
+  background-color: gray;
+  border-color: gray;
+}
+
+.indexBtn {
+  border-radius: 20px;
+}
+
+#grid-container {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  margin-bottom: 20px;
+}
+#grid-container #indexContent {
+  display: grid;
+  grid-template-rows: 5 2 1;
+  justify-items: left;
+  align-items: start;
+  margin: 3vw 0 0 50px;
+  padding: 10px;
+}
+#grid-container #indexContent h1 {
+  font-size: clamp(60px, 8vw, 8vw);
+  font-weight: bold;
+  text-shadow: 5px 5px #7882e0;
+}
+#grid-container #indexContent p {
+  font-size: 20px;
+}
+
+.spinning-ether {
+  align-self: center;
+  justify-self: center;
+}
+@keyframes rotation {
+  0% {
+    transform: rotate3d(0, 1, 0, 0deg);
+  }
+  25% {
+    transform: rotate3d(0, 1, 0, 180deg);
+  }
+  50% {
+    transform: translateY(-20px);
+    transform: rotate3d(0, 1, 0, 360deg);
+  }
+  75% {
+    transform: translateY(20px);
+    transform: rotate3d(0, 1, 0, 180deg);
+  }
+  100% {
+    transform: translateY(-20px);
+    transform: rotate3d(0, 1, 0, 0deg);
+  }
+}
+@keyframes bounce {
+  0% {
+    transform: translateY(50px);
+  }
+  50% {
+    transform: translateY(-50px);
+  }
+  100% {
+    transform: translateY(50px);
+  }
+}
+.spinning-ether .container {
+  width: 20vw;
+  perspective: 5;
+  animation-name: bounce;
+  animation-iteration-count: infinite;
+  animation-duration: 3s;
+}
+.spinning-ether .coin {
+  animation-name: rotation;
+  animation-iteration-count: infinite;
+  animation-duration: 4.5s;
+  transform: rotateY(0deg);
+  transform-style: preserve-3d;
+}
+
+@media only screen and (max-width: 670px) {
+  #indexVid {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+  }
+
+  #grid-container {
+    display: inline-block;
+  }
+
+  #indexContent {
+    max-width: 60%;
+    margin: 3vw 50px;
+    padding: 10px;
+  }
+
+  .spinning-ether {
+    display: none;
+  }
+}
+.index-form-center .index-form-container #register-form, .index-form-center .index-form-container #login-form {
+  display: grid;
+  row-gap: 1em;
+}
+
+.index-form-center {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+.index-form-center .index-form-container {
+  display: grid;
+  grid-template-rows: 1 10 1;
+  width: 60%;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+  background-color: rgba(105, 105, 105, 0.8);
+  row-gap: 5px;
+}
+.index-form-center .index-form-container #login-form {
+  grid-template-rows: auto auto auto;
+}
+.index-form-center .index-form-container #register-form {
+  grid-template-rows: auto auto auto auto;
+}
+.index-form-center .index-form-container label, .index-form-center .index-form-container p, .index-form-center .index-form-container a {
+  color: white;
+}
+.index-form-center .index-form-container label a:hover, .index-form-center .index-form-container p a:hover, .index-form-center .index-form-container a a:hover {
+  font-weight: bold;
+}
+.index-form-center .index-form-container .index-form-title {
+  font-size: larger;
+  font-weight: bold;
+}
+.index-form-center .index-form-container input:not(.btn) {
+  background-color: transparent;
+  border-color: white;
+}
+.index-form-center .index-form-container input:not(.btn)::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+.index-form-center .index-form-container input:not(.btn):hover {
+  background-color: rgba(202, 202, 202, 0.5);
+}
+.index-form-center .index-form-container input:not(.btn):not(:placeholder-shown) {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.index-form-center .index-form-container input:not(.btn):not(:placeholder-shown):hover {
+  background-color: white;
+}
+
+.background-video {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100px);
+  }
+  5%, 90% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-100px);
+    display: none;
+  }
+}
+.error-message {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  transform: translateY(-100px);
+  animation-name: slideDown;
+  animation-duration: 3s;
+  animation-delay: 0.5s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+  padding: 5px 0;
+}
+
+.error-message {
+  background-color: red;
+}
+
+#username-indicator, #password-indicator {
+  font-size: smaller;
+  font-style: italic;
+  margin: 0;
+}
+
+.nav-after-login {
+  border-bottom: 1px solid #cbcff3;
+}
+
+.navbar-toggler {
+  border-color: transparent;
+}
+
+.is-active {
+  border-bottom: 3px solid blue;
+  font-weight: bold;
+}
+
+.nav-link {
+  color: rgb(173, 173, 173);
+}
+
+/*# sourceMappingURL=styles.css.map */

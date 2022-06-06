@@ -1,0 +1,35 @@
+{% extends 'layout_stranger.html' %}
+{% load static %}
+
+{% block title %}
+Sign Up
+{% endblock %}
+
+{% block bgVid %}
+<video src="{% static 'media/bg_register.mp4' %}" type="video/mp4" autoplay loop muted class="background-video"></video>
+{% endblock %}
+
+{% block body %}
+<div class="index-form-center">
+    <div class="index-form-container">
+        <p class="index-form-title">SIGN UP</p>
+        <form action="{% url 'register' %}" method="POST" id="register-form">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" class="form-control" name="username" placeholder="JohnDoe0203" id="registerUsername" required autofocus>
+            </div>
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" name="email" placeholder="example@mail.com" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" name="password" placeholder="password" required id="registerPassword">
+            </div>
+            <input class="btn btn-outline-light" type="submit" value="SIGN UP" id="sign-up-button">
+        </form>
+        <p>Already a user? <a href="{% url 'login' %}">LOGIN</a></p>
+    </div>
+</div>
+{% endblock %}
